@@ -25,7 +25,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { 'extensions': ['.js'] }],
     'import/no-extraneous-dependencies': ['error', {
-      'devDependencies': ['src/Examples/*.js', 'src/test.js']
+      'devDependencies': ['src/Examples/*.js', 'src/testSetup.js']
     }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',

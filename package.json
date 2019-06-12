@@ -23,7 +23,7 @@
   "jest": {
     "verbose": true,
     "setupFiles": [
-      "./src/test.js"
+      "./src/testSetup.js"
     ]
   },
   "peerDependencies": {
