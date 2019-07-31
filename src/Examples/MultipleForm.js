@@ -10,7 +10,7 @@ const MultipleFormExample = ({ onSubmit }) => {
     number: '',
   };
 
-  const [values, fields] = useForm({
+  const [values, { contactList }] = useForm({
     contactList: [],
   });
 
@@ -23,20 +23,16 @@ const MultipleFormExample = ({ onSubmit }) => {
     <form onSubmit={handleSubmit}>
       <button
         type="button"
-        onClick={() => fields.contactListAdd(INITIAL_CONTACT_VALUES)}
+        onClick={() => contactList.add(INITIAL_CONTACT_VALUES)}
       >
         Add contact
       </button>
 
-      {_.map(fields.contactList, (contact, index) => (
+      {_.map(contactList.list, (contact, index) => (
         <div key={index}>
-          <input name={`contact-${index}-name`} type="text" {...contact.name} />
-          <input
-            name={`contact-${index}-number`}
-            type="text"
-            {...contact.number}
-          />
-          <button type="button" onClick={() => fields.contactListRemove(index)}>
+          <input type="text" {...contact.name.text} />
+          <input type="text" {...contact.number.text} />
+          <button type="button" onClick={() => contactList.remove(index)}>
             Remove
           </button>
         </div>

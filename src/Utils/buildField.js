@@ -18,8 +18,8 @@ const buildArrayField = (path, form, setForm) => ({
 const buildPropertyField = (path, form, setForm) => ({
   // TODO: Add an unique ID
   radio: value => ({
-    id: `${path}-${value}`,
-    name: path,
+    id: `${path.replace(/\[|]|.list/g, '')}-${value}`,
+    name: path.replace(/\[|]|.list/g, ''),
     value,
     onChange: ({ target }) => {
       const newValue =
@@ -31,8 +31,8 @@ const buildPropertyField = (path, form, setForm) => ({
   }),
   // TODO: Add checkbox
   text: {
-    id: path,
-    name: path,
+    id: path.replace(/\[|]|.list/g, ''),
+    name: path.replace(/\[|]|.list/g, ''),
     value: _.get(form, path.replace('.list', '')),
     onChange: ({ target }) => {
       const newValue =

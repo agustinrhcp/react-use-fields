@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import useForm from '../useForm';
 
 const SimpleFormExample = ({ onSubmit }) => {
-  const [values, fields] = useForm({
+  const [values, { name, email, password }] = useForm({
     name: '',
     email: '',
     password: '',
@@ -17,9 +17,9 @@ const SimpleFormExample = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input name="name" type="text" {...fields.name} />
-      <input name="email" type="email" {...fields.email} />
-      <input name="password" type="password" {...fields.password} />
+      <input type="text" {...name.text} />
+      <input type="email" {...email.text} />
+      <input type="password" {...password.text} />
 
       <button type="submit"> Submit </button>
     </form>
